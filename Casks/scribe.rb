@@ -1,6 +1,6 @@
 cask "scribe" do
-  version "0.1.1"
-  sha256 "1d36b37eb10534d9ed6612ba10ef2b2b3c311bbcf7288118b784bad02a501d9b"
+  version "0.1.2"
+  sha256 "b8b1428b3bb5fa6cf2ec3c249b139973823cf07041a367b0dd4c93069215e337"
 
   url "https://github.com/dan-brodie/scribe/releases/download/v#{version}/Scribe-#{version}.dmg"
   name "Scribe"
