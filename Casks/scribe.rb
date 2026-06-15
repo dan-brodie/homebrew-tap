@@ -2,8 +2,7 @@ cask "scribe" do
   version "0.1.1"
   sha256 "1d36b37eb10534d9ed6612ba10ef2b2b3c311bbcf7288118b784bad02a501d9b"
 
-  url "https://github.com/dan-brodie/scribe/releases/download/v#{version}/Scribe-#{version}.dmg",
-      verified: "github.com/dan-brodie/scribe/"
+  url "https://github.com/dan-brodie/scribe/releases/download/v#{version}/Scribe-#{version}.dmg"
   name "Scribe"
   desc "On-device meeting transcription, diarization, and summarization menu bar app"
   homepage "https://github.com/dan-brodie/scribe"
