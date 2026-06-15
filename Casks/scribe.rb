@@ -13,9 +13,14 @@ cask "scribe" do
 
   app "Scribe.app"
 
-  # The app is ad-hoc signed (not notarized). Homebrew quarantines downloads by
-  # default, so a notarization check would otherwise block first launch — install
-  # with `--no-quarantine` (see the tap README) for a prompt-free launch.
+  # Scribe is ad-hoc signed (notarization needs a paid Apple Developer account),
+  # and Homebrew quarantines downloads, which makes Gatekeeper block an
+  # un-notarized app on first launch. Strip the quarantine flag after install so
+  # the app launches cleanly. Users opt into this by choosing to install Scribe.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Scribe.app"]
+  end
 
   zap trash: [
     "~/Library/Application Support/Scribe",
