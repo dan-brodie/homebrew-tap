@@ -1,6 +1,6 @@
 cask "scribe" do
-  version "0.1.4"
-  sha256 "f7a64c3f4ca43c5edbdddd9034c4bda39022f39514e006e1d0a4cad0b2dcc524"
+  version "0.1.5"
+  sha256 "b827ad2fb33509e5874cc3756ff3899cbc25a28de0017b88a9e3d19d3dc0e947"
 
   url "https://github.com/dan-brodie/scribe/releases/download/v#{version}/Scribe-#{version}.dmg"
   name "Scribe"
@@ -13,10 +13,11 @@ cask "scribe" do
 
   app "Scribe.app"
 
-  # Scribe is ad-hoc signed (notarization needs a paid Apple Developer account),
-  # and Homebrew quarantines downloads, which makes Gatekeeper block an
-  # un-notarized app on first launch. Strip the quarantine flag after install so
-  # the app launches cleanly. Users opt into this by choosing to install Scribe.
+  # Scribe is self-signed but not notarized (notarization needs a paid Apple
+  # Developer account), and Homebrew quarantines downloads, which makes Gatekeeper
+  # block an un-notarized app on first launch. Strip the quarantine flag after
+  # install so the app launches cleanly. Users opt into this by choosing to
+  # install Scribe.
   postflight do
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/Scribe.app"]
